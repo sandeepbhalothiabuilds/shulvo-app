@@ -3,16 +3,19 @@ import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
 import styles from './src/shulvo/com/components/uiComponents/Styles.js';
 import HomePage from  './src/shulvo/com/components/uiComponents/HomePage';
+import {createRootNavigator} from '../router/Router';
 
-export default class App extends React.Component {
+export default createRootNavigator();
+/*export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Welcome to Shulvo Technology Pvt Ltd.!</Text>
-        <HomePage />
-      </View>
-    );
+    */
+//      <View style={styles.container}>
+//        <Text>Welcome to Shulvo Technology Pvt Ltd.!</Text>
+//        <HomePage />
+//      </View>
+ /*   );
   }
 };
 
-AppRegistry.registerComponent('App', () => 'App');
+AppRegistry.registerComponent('App', () => 'App');*/
