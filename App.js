@@ -1,24 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
-import LoginToHome from  './Com/Shulvo/Components/UIComponents/LoginToHome';
+import styles from './src/shulvo/com/components/uiComponents/Styles.js';
+import HomePage from  './src/shulvo/com/components/uiComponents/HomePage';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Welcome to Shulvo Technology Pvt Ltd.!!!</Text>
-        <LoginToHome />
+        <Text>Welcome to Shulvo Technology Pvt Ltd.!</Text>
+        <HomePage />
       </View>
     );
   }
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+AppRegistry.registerComponent('App', () => 'App');
