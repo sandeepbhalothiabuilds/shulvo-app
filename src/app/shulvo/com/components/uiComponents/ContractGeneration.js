@@ -7,46 +7,46 @@ import {
     View
 } from 'react-native';
 
-import BookcaseItem from './bookcaseItem';
+import ContractItems from './ContractItems';
 
 export default class ContractGeneration extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            books: [
+            contracts: [
                 {
-                    id: 1,
-                    title: 'Walmart Contract',
-                    author: 'Sandeep',
-                    thumbnail: 'http://www.underconsideration.com/brandnew/archives/walmart_detail.gif'
+                    contractId: 1,
+                    contractTitle: 'Walmart Contract',
+                    signedBy: 'Sandeep',
+                    contractCover: 'http://www.underconsideration.com/brandnew/archives/walmart_detail.gif'
                 },
                 {
-                    id: 2,
-                    title: 'Aldi Contract',
-                    author: 'Gaurav',
-                    thumbnail: 'https://upload.wikimedia.org/wikipedia/en/e/e8/Aldi_Sud_Logo_2017.png'
+                    contractId: 2,
+                    contractTitle: 'Aldi Contract',
+                    signedBy: 'Gaurav',
+                    contractCover: 'https://upload.wikimedia.org/wikipedia/en/e/e8/Aldi_Sud_Logo_2017.png'
                 },
                 {
-                    id: 3,
-                    title: 'Big Bazar Contract',
-                    author: 'Jitan',
-                    thumbnail: 'https://www.bigbazaar.com/assets/images/logo-bigbazaar.jpg'
+                    contractId: 3,
+                    contractTitle: 'Big Bazar Contract',
+                    signedBy: 'Jitan',
+                    contractCover: 'https://www.bigbazaar.com/assets/images/logo-bigbazaar.jpg'
                 }
             ]
         }
     }
 
     _renderItem = ({item}) => (
-        <BookcaseItem
-            id={item.id}
-            title={item.title}
-            author={item.author}
-            thumbnail={item.thumbnail}
+        <ContractItems
+            contractId={item.contractId}
+            contractTitle={item.contractTitle}
+            signedBy={item.signedBy}
+            contractCover={item.contractCover}
             navigation={this.props.navigation}
         />
     );
 
-    _keyExtractor = (item, index) => item.id.toString();
+    _keyExtractor = (item, index) => item.contractId.toString();
 
     render() {
         return (
@@ -55,7 +55,7 @@ export default class ContractGeneration extends Component {
                     barStyle="light-content"
                 />
                 <FlatList
-                    data={this.state.books}
+                    data={this.state.contracts}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
                 />

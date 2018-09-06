@@ -9,26 +9,26 @@ import {
 import { createStackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
-export default class BookcaseItem extends Component {
+export default class ContractItems extends Component {
 
     _onEditContract = () => {
-        let id = this.props.id;
+        let contractId = this.props.contractId;
 
     };
 
     render() {
-        return(
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('EditContract', {id: this.props.id})}>
+        return (
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('EditContract', { contractId: this.props.contractId })}>
                 <View style={styles.rowContainer}>
-                    <Image source={{uri: this.props.thumbnail}}
-                           style={styles.thumbnail}
-                           resizeMode="contain" />
+                    <Image source={{ uri: this.props.contractCover }}
+                        style={styles.contractCover}
+                        resizeMode="contain" />
                     <View style={styles.rowText}>
-                        <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>
-                            {this.props.title}
+                        <Text style={styles.contractTitle} numberOfLines={2} ellipsizeMode={'tail'}>
+                            {this.props.contractTitle}
                         </Text>
-                        <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>
-                            {this.props.author}
+                        <Text style={styles.signedBy} numberOfLines={1} ellipsizeMode={'tail'}>
+                            {this.props.signedBy}
                         </Text>
                     </View>
                 </View>
@@ -47,25 +47,25 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginTop: 10,
         borderRadius: 4,
-        shadowOffset:{  width: 1,  height: 1,  },
+        shadowOffset: { width: 1, height: 1, },
         shadowColor: '#CCC',
         shadowOpacity: 1.0,
         shadowRadius: 1
     },
-    title: {
+    contractTitle: {
         paddingLeft: 10,
         paddingTop: 5,
         fontSize: 16,
         fontWeight: 'bold',
         color: '#777'
     },
-    author: {
+    signedBy: {
         paddingLeft: 10,
         marginTop: 5,
         fontSize: 14,
         color: '#777'
     },
-    thumbnail: {
+    contractCover: {
         flex: 1,
         height: undefined,
         width: undefined

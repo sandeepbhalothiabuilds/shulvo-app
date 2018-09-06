@@ -6,7 +6,7 @@
                      return (
                        <View style={styles.container}>
                          <Text style={styles.title}>
-                          Generate Invoice here
+                          Generate Invoice here!!
                          </Text>
                        </View>
                      );

@@ -9,12 +9,12 @@ import {
 export default class EditContract extends Component {
     render() {
         const { navigation } = this.props;
-        const itemId = navigation.getParam('id', 'NO-ID');
+        const contractId = navigation.getParam('contractId', 'Default-Id');
 
         return (
             <View style={styles.container}>
                 <Text style={styles.title}>
-                    Edit Contract #{JSON.stringify(itemId)}
+                    Edit Contract #{JSON.stringify(contractId)}
                 </Text>
                 <Button
                     title="Back To Contracts"
