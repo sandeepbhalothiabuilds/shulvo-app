@@ -1,12 +1,12 @@
                  import React, { Component } from 'react';
                  import { AppRegistry, StyleSheet,Text, View} from 'react-native';
 
-                 export default class DeviceRegistration extends Component {
+                 export default class InvoiceGeneration extends Component {
                    render() {
                      return (
                        <View style={styles.container}>
                          <Text style={styles.title}>
-                          Register your device here
+                          Generate Invoice here
                          </Text>
                        </View>
                      );
@@ -28,4 +28,4 @@
                    }
                  });
 
-AppRegistry.registerComponent('DeviceRegistration', () => 'DeviceRegistration');
+AppRegistry.registerComponent('InvoiceGeneration', () => 'InvoiceGeneration');

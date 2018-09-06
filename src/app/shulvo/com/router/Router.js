@@ -4,8 +4,13 @@ import {StackNavigator, createStackNavigator, createBottomTabNavigator, withNavi
 import {Icon} from 'react-native-elements';
 
 
-import DeviceRegistration from '../uiComponents/DeviceRegistration';
-import Profile from '../uiComponents/Profile';
+import DeviceRegistration from  '../components/uiComponents/DeviceRegistration';
+import InvoiceGeneration from  '../components/uiComponents/InvoiceGeneration';
+import ContractGeneration from  '../components/uiComponents/ContractGeneration';
+
+import EditContract from  '../components/uiComponents/EditContract';
+
+import Profile from '../components/uiComponents/Profile';
 
 let screen = Dimensions.get('window');
 
@@ -18,12 +23,49 @@ export const Tabs = createBottomTabNavigator({
                                                color={tintColor}/>
         },
     },
+     'Generate Invoice': {
+            screen: InvoiceGeneration,
+            navigationOptions: {
+                tabBarLabel: 'Generate Invoice',
+                tabBarIcon: ({tintColor}) => <Icon name="ios-document-outline" type="ionicon" size={28}
+                                                   color={tintColor}/>
+            },
+        },
+       'ContractGeneration': {
+                    screen: ContractGeneration,
+                    navigationOptions: {
+                        tabBarLabel: 'Contracts',
+                        tabBarIcon: ({tintColor}) => <Icon name="ios-contacts-outline" type="ionicon" size={28}
+                                                           color={tintColor}/>
+                    },
+                },
     'My Profile': {
         screen: Profile,
         navigationOptions: {
             tabBarLabel: 'Profile',
-            tabBarIcon: ({tintColor}) => <Icon name="ios-person" type="ionicon" size={28} color={tintColor}/>
+            tabBarIcon: ({tintColor}) => <Icon name="ios-person-outline" type="ionicon" size={28} color={tintColor}/>
         },
+    },
+});
+
+
+
+
+
+export const ContractStack = createStackNavigator({
+    ContractGeneration: {
+        screen: ContractGeneration,
+        navigationOptions: ({navigation}) => ({
+            header: null,
+        }),
+    },
+    EditContract: {
+        screen: EditContract,
+        navigationOptions: ({navigation}) => ({
+            header: null,
+            tabBarVisible: false,
+            gesturesEnabled: false
+        }),
     },
 });
 
@@ -36,6 +78,12 @@ export const createRootNavigator = () => {
                     gesturesEnabled: false,
                 })
             },
+            ContractStack: {
+                screen: ContractStack,
+                navigationOptions: ({navigation}) => ({
+                    gesturesEnabled: false,
+                })
+            }
 
         },
         {
