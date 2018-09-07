@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import SignIn from '../uiComponents/SignIn';
+
 export default class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>
-            Your Profile
-        </Text>
+           <SignIn /> 
       </View>
     );
   }
@@ -20,9 +20,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  }
+ 
 });
