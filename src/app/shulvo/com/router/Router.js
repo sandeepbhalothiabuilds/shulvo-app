@@ -1,20 +1,22 @@
 import React, {Component} from 'react';
-import {Dimensions, Platform} from 'react-native';
-import {StackNavigator, createStackNavigator, createBottomTabNavigator, withNavigation} from 'react-navigation';
+import {Dimensions, Platform, Button} from 'react-native';
+import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 import {Icon} from 'react-native-elements';
 
 
 import DeviceRegistration from  '../components/uiComponents/DeviceRegistration';
 import InvoiceGeneration from  '../components/uiComponents/InvoiceGeneration';
 import ContractGeneration from  '../components/uiComponents/ContractGeneration';
-
 import EditContract from  '../components/uiComponents/EditContract';
-
 import Profile from '../components/uiComponents/Profile';
+import SignIn from '../components/uiComponents/SignIn';
+import SignUp from '../components/uiComponents/SignUp';
+import LogoTitle from '../components/uiComponents/LogoTitle';
+import Styles from '../components/uiComponents/Styles';
 
 let screen = Dimensions.get('window');
 
-export const Tabs = createBottomTabNavigator({
+export const BottomTabs = createBottomTabNavigator({
     'Register Device': {
         screen: DeviceRegistration,
         navigationOptions: {
@@ -56,39 +58,107 @@ export const ContractStack = createStackNavigator({
     ContractGeneration: {
         screen: ContractGeneration,
         navigationOptions: ({navigation}) => ({
-            header: null,
+            header : null,
+            tabBarVisible: false,
+            gesturesEnabled: false
         }),
     },
     EditContract: {
         screen: EditContract,
         navigationOptions: ({navigation}) => ({
-            header: null,
+            header : null,
             tabBarVisible: false,
             gesturesEnabled: false
         }),
     },
 });
 
+export const SignInSignUp = createStackNavigator({
+    Profile: {
+        screen: Profile,
+        navigationOptions: ({navigation}) => ({
+            header : null,
+            tabBarVisible: false,
+            gesturesEnabled: false
+        }),
+    },
+    SignIn: {
+        screen: SignIn,
+        navigationOptions: ({navigation}) => ({
+            header : null,
+            tabBarVisible: false,
+            gesturesEnabled: false
+        }),    
+    },
+    SignUp: {
+        screen: SignUp,
+        navigationOptions: ({navigation}) => ({
+            header : null,
+            tabBarVisible: false,
+            gesturesEnabled: false
+        }),
+    },
+},
+{
+    initialRouteName: 'Profile',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
+  }
+);
+
 export const createRootNavigator = () => {
     return createStackNavigator(
         {
-            Tabs: {
-                screen: Tabs,
+            BottomTabs: {
+                screen: BottomTabs,
                 navigationOptions: ({navigation}) => ({
+                    headerTitle: <LogoTitle />,
+                    headerRight: (
+                        <Button
+                        onPress={() => navigation.navigate('BottomTabs')}
+                        title="Home"
+                        style = {Styles.buttonText}                    />
+                          ),
                     gesturesEnabled: false,
+                    backgroundColor: '#fff',
                 })
             },
             ContractStack: {
                 screen: ContractStack,
                 navigationOptions: ({navigation}) => ({
+                    headerTitle: <LogoTitle />,
+                    headerRight: (
+                        <Button
+                        onPress={() => navigation.goBack()}
+                        title="Home"
+                        style = {Styles.buttonText}                    />
+                          ),
                     gesturesEnabled: false,
+                    backgroundColor: '#fff',
+                })
+            },
+            SignInSignUp: {
+                screen: SignInSignUp,
+                navigationOptions: ({navigation}) => ({
+                    headerTitle: <LogoTitle />,
+                    headerRight: (
+                    <Button
+                    onPress={() => navigation.goBack()}
+                    title="Home"
+                    style = {Styles.buttonText}                    />
+                      ),
+                    gesturesEnabled: false,
+                    backgroundColor: '#fff',
                 })
             }
 
         },
-        {
-            headerMode: "none",
-            mode: "modal"
-        }
     );
 };

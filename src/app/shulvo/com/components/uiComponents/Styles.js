@@ -1,11 +1,9 @@
-import React from 'react';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
@@ -20,9 +18,9 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
   headerContainer: {
-    justifyContent: 'flex-start',
-    paddingTop: 20,
-    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems : 'center',
+    paddingTop: 10,
   },
   inputContainer: {
     margin: 20,

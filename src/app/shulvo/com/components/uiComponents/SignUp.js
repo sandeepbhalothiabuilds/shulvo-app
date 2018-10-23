@@ -3,15 +3,16 @@ import {
   View,
   Alert,
   Text,
-  AppRegistry,
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
 
 import styles from '../uiComponents/Styles';
 import  { callGetApi } from '../../gateway/RestCall';
+import Route from '../uiComponents/Route';
 
-export default class SignIn extends Component {
+export default class SignUp extends Component {
   constructor(props) {
     super(props);
   }
@@ -19,7 +20,7 @@ export default class SignIn extends Component {
     const { params } = navigation.state;
 
     return {
-      title: params ? params.ScreenName : 'SignIn Screen',
+      headerTitle: params ? params.ScreenName : 'A Nested Details Screen',
       /* These values are used instead of the shared configuration! */
       headerStyle: {
         backgroundColor: navigationOptions.headerTintColor,
@@ -44,7 +45,7 @@ export default class SignIn extends Component {
 
   handlePress = async () => {
     const url = 'https://facebook.github.io/react-native/movies.json';
-    callGetApi(url).then((res) => ( Alert.alert(res.title)));  
+    callGetApi(url).then((res) => ( Alert.alert(res.title)));
 }
 
 handlePress1 = async () => {
@@ -70,10 +71,22 @@ handlePress1 = async () => {
   render() {
     return ( 
       <View style={styles.container}>
-        <View style = {styles.headerContainer}>
-          <Text style={styles.header}>Login to Shulvo!</Text>
+        <View style={styles.headerContainer}>
+          <Text style={styles.header}>SignUp to Shulvo!</Text>
         </View>
         <View style={styles.inputContainer}>
+        <TextInput
+            underlineColorAndoroid="transparent"
+            style={styles.inputText}
+            placeholder="First Name"
+            onChangeText={this.handleEmail}
+          />
+          <TextInput
+            underlineColorAndoroid="transparent"
+            style={styles.inputText}
+            placeholder="Last name"
+            onChangeText={this.handleEmail}
+          />
           <TextInput
             underlineColorAndoroid="transparent"
             style={styles.inputText}
@@ -94,7 +107,7 @@ handlePress1 = async () => {
             //() => this.login(this.state.email, this.state.password)
             onPress={this.handlePress.bind(this)}>
             console.log('here-1');
-            <Text style={styles.buttonText}> Submit </Text>
+            <Text style={styles.buttonText}> Sign Up </Text>
           </TouchableOpacity>
         </View>
       </View>

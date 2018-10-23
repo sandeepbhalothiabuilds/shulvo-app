@@ -18,7 +18,7 @@ export default class EditContract extends Component {
                 </Text>
                 <Button
                     title="Back To Contracts"
-                    onPress={() => this.props.navigation.navigate('Tabs')}
+                    onPress={() => this.props.navigation.navigate('BottomTabs')}
                 />
             </View>
         );
